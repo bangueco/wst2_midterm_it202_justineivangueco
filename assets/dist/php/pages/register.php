@@ -1,3 +1,8 @@
+<?php
+    // Check if session does exists and if it does it will redirect to chatroom
+    session_start();
+    if (isset($_SESSION['auth'])) header("Location: ./assets/dist/php/pages/chatroom.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
