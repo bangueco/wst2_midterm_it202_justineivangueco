@@ -32,7 +32,7 @@
         <form id="login-form">
             <p class="invi login-msg-status">P</p>
             <div class="form-group mb-3">
-                <input class="form-control form-control-lg" type="text" name="username" id="user_name" placeholder="Username">
+                <input class="form-control form-control-lg" type="email" name="email" id="user_name" placeholder="Email">
             </div>
             <div class="form-group mb-3">
                 <input class="form-control form-control-lg" type="password" name="password" id="user_pass" placeholder="Password">
