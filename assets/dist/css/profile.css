@@ -1,0 +1,23 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.debugging {
+    border: 1px solid red;
+}
+
+.profile {
+    height: 100vh;
+}
+
+.profile-container {
+    border: 1px dashed black;
+}
