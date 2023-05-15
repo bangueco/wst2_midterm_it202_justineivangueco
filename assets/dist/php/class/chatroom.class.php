@@ -41,7 +41,7 @@ class Chatroom {
                 $html.='
             <div class="others-box">
                 <div class="box-bg-others">
-                    <div class="others-username"><a href="profile.php?profile='.$message['name'].'">'.$message['name'].'</a></div>
+                    <div class="others-username"><a href="profile.php?profile='.$message['email'].'">'.$message['name'].'</a></div>
                     <p class="others-message">'.$message['message'].'</p>
                 </div>
             </div>
