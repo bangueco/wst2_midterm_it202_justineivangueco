@@ -1,0 +1,79 @@
+:root {
+    --debugging: 1px solid red;
+    --green: rgb(39, 218, 16);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.debugging {
+    border: var(--debugging);
+}
+
+main {
+    height: 100vh;
+    background-color: rgb(193, 247, 229);
+}
+
+.logo {
+    font-size: 5rem;
+    line-height: 0.8;
+}
+
+.desc {
+    font-size: 1.5rem;
+}
+
+#login-form {
+    position: relative;
+    background-color: rgb(250, 246, 246);
+    width: 530px;
+    height: 260px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px 3px rgb(75, 74, 74);
+}
+
+#register-form {
+    position: relative;
+    background-color: rgb(250, 246, 246);
+    width: 530px;
+    height: 330px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px 3px rgb(75, 74, 74);
+}
+
+.invi {
+    display: none;
+}
+
+.login-msg-status {
+    position: absolute;
+    color: red;
+    bottom: 80px;
+    left: 68%;
+}
+
+.registration-status {
+    position: absolute;
+    color: red;
+    font-size: 0.8rem;
+    width: 400px;
+    text-align: justify;
+    left: 30px;
+    bottom: 15px;
+}
+
+.green {
+    color: green;
+}
