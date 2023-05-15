@@ -7,7 +7,7 @@ class Chatroom {
         $id = $_SESSION['auth'][0]['id'];
 
         $connect = new PDO("mysql:host=localhost;dbname=echat", 'admin', 'root');
-        $query = "INSERT INTO chats(account_id, message) VALUES(:account_ID, :message)";
+        $query = "INSERT INTO messages(account_id, message) VALUES(:account_ID, :message)";
         $send_msg = $connect->prepare($query);
         $send_msg->bindValue('account_ID', $id);
         $send_msg->bindValue('message', $data['message']);
@@ -20,7 +20,7 @@ class Chatroom {
         $id = $_SESSION['auth'][0]['id'];
 
         $connect = new PDO('mysql:host=localhost;dbname=echat', 'admin', 'root');
-        $query = "SELECT accounts.id, accounts.name, accounts.username, accounts.type, chats.account_ID, chats.message FROM accounts INNER JOIN chats ON chats.account_ID = accounts.id;";
+        $query = "SELECT accounts.id, accounts.name, accounts.email, accounts.type, messages.account_ID, messages.message FROM accounts INNER JOIN messages ON messages.account_ID = accounts.id;";
         $fetcher = $connect->prepare($query);
         $fetcher->execute();
 
@@ -41,7 +41,7 @@ class Chatroom {
                 $html.='
             <div class="others-box">
                 <div class="box-bg-others">
-                    <div class="others-username"><a href="profile.php?profile='.$message['username'].'">'.$message['username'].'</a></div>
+                    <div class="others-username"><a href="profile.php?profile='.$message['name'].'">'.$message['name'].'</a></div>
                     <p class="others-message">'.$message['message'].'</p>
                 </div>
             </div>

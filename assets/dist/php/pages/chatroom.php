@@ -18,7 +18,7 @@
     <header class="bg-warning">
         <p class="logo">E-CHAT CHATROOM</p>
         <div class="left-links">
-            <a href="profile.php?profile=<?php echo $_SESSION['auth'][0]['username']?>">Profile</a>
+            <a href="profile.php?profile=<?php echo $_SESSION['auth'][0]['email']?>">Profile</a>
             <?php
                 if ($_SESSION['auth'][0]['type'] == 'admin') echo '<a href="#">Admin Panel</a>'
             ?>

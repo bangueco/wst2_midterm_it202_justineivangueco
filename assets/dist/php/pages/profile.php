@@ -1,10 +1,10 @@
 <?php
     session_start();
     $connect = new PDO("mysql:host=localhost;dbname=echat", 'admin', 'root');
-    $query = "SELECT id, name, username, password, type FROM accounts WHERE username=:username";
+    $query = "SELECT id, name, email, password, type FROM accounts WHERE email=:email";
 
     $profile = $connect->prepare($query);
-    $profile->bindValue('username',$_GET['profile']);
+    $profile->bindValue('email',$_GET['profile']);
     $profile->execute();
 
     $records = $profile->fetchAll();
@@ -19,7 +19,7 @@
         if ($records[0]['id'] == $_SESSION['auth'][0]['id']) {
             echo 'Your';
         } else {
-            echo $records[0]['username'].'\'s';
+            echo $records[0]['name'].'\'s';
         }
     ?> Profile</title>
 
@@ -44,10 +44,10 @@
                     echo $records[0]['name'];
                 }?>
                 </p>
-                <p>Username: <?php if ($records[0]['id'] == $_SESSION['auth'][0]['id']) {
-                    echo $_SESSION['auth'][0]['username'];
+                <p>Email: <?php if ($records[0]['id'] == $_SESSION['auth'][0]['id']) {
+                    echo $_SESSION['auth'][0]['email'];
                 } else {
-                    echo $records[0]['username'];
+                    echo $records[0]['email'];
                 }?></p>
                 <a class="btn btn-danger" href="chatroom.php">Back</a>
             </div>
