@@ -4,7 +4,7 @@
     $Database = new Database;
     $Database->createDatabase("echat"); // if database not exists, create
     $Database->createTable("accounts"); // if table not exists, create
-    $Database->createTable("chats"); // if table not exists, create
+    $Database->createTable("messages"); // if table not exists, create
 ?>
 
 <?php
