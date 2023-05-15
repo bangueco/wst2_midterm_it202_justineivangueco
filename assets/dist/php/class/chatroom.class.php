@@ -20,7 +20,7 @@ class Chatroom {
         $id = $_SESSION['auth'][0]['id'];
 
         $connect = new PDO('mysql:host=localhost;dbname=echat', 'admin', 'root');
-        $query = "SELECT accounts.id, accounts.name, accounts.email, accounts.type, messages.account_ID, messages.message, messages.timestamp FROM accounts INNER JOIN messages ON messages.account_ID = accounts.id;";
+        $query = "SELECT accounts.id, accounts.name, accounts.email, accounts.type, messages.id as message_id, messages.account_ID, messages.message, messages.timestamp FROM accounts INNER JOIN messages ON messages.account_ID = accounts.id;";
         $fetcher = $connect->prepare($query);
         $fetcher->execute();
 
@@ -33,7 +33,7 @@ class Chatroom {
                 $html.='<div class="your-box">
                 <div class="box-bg-you">
                     <div class="you">You</div>
-                    <div class="delete"><i class="fa-solid fa-trash"></i> Delete</div>
+                    <a href="../router/router.php?action=delete&message_id='.$message['message_id'].'" class="delete"><i class="fa-solid fa-trash"></i> Delete</a>
                     <p class="your-message">'.$message['message'].'</p>
                     <p class="time-stamp">'.$message['timestamp'].'</p>
                 </div>
