@@ -20,7 +20,7 @@ class Chatroom {
         $id = $_SESSION['auth'][0]['id'];
 
         $connect = new PDO('mysql:host=localhost;dbname=echat', 'admin', 'root');
-        $query = "SELECT accounts.id, accounts.name, accounts.email, accounts.type, messages.account_ID, messages.message FROM accounts INNER JOIN messages ON messages.account_ID = accounts.id;";
+        $query = "SELECT accounts.id, accounts.name, accounts.email, accounts.type, messages.account_ID, messages.message, messages.timestamp FROM accounts INNER JOIN messages ON messages.account_ID = accounts.id;";
         $fetcher = $connect->prepare($query);
         $fetcher->execute();
 
@@ -35,6 +35,7 @@ class Chatroom {
                     <div class="you">You</div>
                     <div id="delete"><i class="fa-solid fa-trash"></i></div>
                     <p class="your-message">'.$message['message'].'</p>
+                    <p class="time-stamp">'.$message['timestamp'].'</p>
                 </div>
             </div>';
             } else {
@@ -43,6 +44,7 @@ class Chatroom {
                 <div class="box-bg-others">
                     <div class="others-username"><a href="profile.php?profile='.$message['email'].'">'.$message['name'].'</a></div>
                     <p class="others-message">'.$message['message'].'</p>
+                    <p class="time-stamp">'.$message['timestamp'].'</p>
                 </div>
             </div>
             ';
