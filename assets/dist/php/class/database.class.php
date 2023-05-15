@@ -40,12 +40,11 @@ class Database {
 
     public function deleteMsg($message_id) {
         $connect = new PDO("mysql:host=localhost;dbname=echat", "admin", "root");
-        $sql = "DELETE FROM messages WHERE messages.id = :message_id";
+        $sql = "DELETE FROM messages WHERE messages.id = $message_id";
 
         $delete = $connect->prepare($sql);
-        $delete->bindValue('messsage_id', $message_id);
         $delete->execute();
 
-        echo $message_id;
+        header("Location: ../pages/chatroom.php");
     }
 }
