@@ -18,7 +18,7 @@
                 <input type="text" name="name" id="name" class="form-control form-control-lg" placeholder="Name">
             </div>
             <div class="form-group mb-3">
-                <input type="text" name="username" id="username" class="form-control form-control-lg" placeholder="Username">
+                <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Email">
             </div>
             <div class="form-group mb-3">
                 <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Password">
@@ -30,12 +30,12 @@
                         <input type="checkbox" id="name-status">
                         <label>Name must be 5 characters long!</label>
                     </div>
-                    <div class="username-status-container">
-                        <input type="checkbox" id="username-status">
-                        <label>Username must be 3 characters long!</label>
+                    <div class="email-status-container">
+                        <input type="checkbox" id="email-status">
+                        <label>Email must be 3 characters long!</label>
                     </div>
                     <div class="password-status-container">
-                        <input type="checkbox" id="username-status">
+                        <input type="checkbox" id="password-status">
                         <label>Password must be 5 characters long!</label>
                     </div>
                 </div>

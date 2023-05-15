@@ -1,7 +1,7 @@
 const registerButton = document.querySelector(".register");
 const registerForm = document.querySelector("#register-form");
 const nameStatusContainer = document.querySelector(".name-status-container")
-const usernameStatusContainer = document.querySelector(".username-status-container")
+const emailStatusContainer = document.querySelector(".email-status-container")
 const passwordStatusContainer = document.querySelector(".password-status-container")
 
 $("input:checkbox").click(function() { return false; }) // makes all checkbox unclickable
@@ -16,14 +16,14 @@ const required = function(e) {
             nameStatusContainer.children[0].checked = false
             nameStatusContainer.children[1].classList.remove("green");
         }
-    } else if (e === 'username') {
+    } else if (e === 'email') {
         // console.log("Username");
-        if (registerForm.username.value.length >= 3) {
-            usernameStatusContainer.children[0].checked = true
-            usernameStatusContainer.children[1].classList.add("green");
-        } else if (registerForm.username.value.length <= 2) {
-            usernameStatusContainer.children[0].checked = false
-            usernameStatusContainer.children[1].classList.remove("green");
+        if (registerForm.email.value.length >= 3) {
+            emailStatusContainer.children[0].checked = true
+            emailStatusContainer.children[1].classList.add("green");
+        } else if (registerForm.email.value.length <= 2) {
+            emailStatusContainer.children[0].checked = false
+            emailStatusContainer.children[1].classList.remove("green");
         }
     } else if (e === 'password') {
         // console.log("Password");
@@ -38,11 +38,11 @@ const required = function(e) {
 }
 
 registerForm.name.addEventListener('keyup', () => required("name"));
-registerForm.username.addEventListener('keyup', () => required("username"));
+registerForm.email.addEventListener('keyup', () => required("email"));
 registerForm.password.addEventListener('keyup', () => required("password"));
 
 const submitForm = () => {
-    if (registerForm.name.value.length <= 4 || registerForm.username.value.length <= 2 || registerForm.password.value.length <= 4) {
+    if (registerForm.name.value.length <= 4 || registerForm.email.value.length <= 2 || registerForm.password.value.length <= 4) {
         alert("All requirements must be met!");
         return false;
     } else {
@@ -67,5 +67,5 @@ const submitForm = () => {
 registerButton.addEventListener('click', submitForm);
 
 required("name");
-required("username");
+required("email");
 required("password");
