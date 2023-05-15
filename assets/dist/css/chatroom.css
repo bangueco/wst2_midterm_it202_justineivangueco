@@ -1,0 +1,120 @@
+:root {
+    --debugging: 1px solid red;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.debugging {
+    border: var(--debugging);
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header > .logo {
+    font-size: 3rem;
+}
+
+header > .left-links {
+    display: flex;
+    gap: 20px;
+}
+
+header > .left-links > a {
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+    overflow: scroll;
+}
+
+
+.your-box, .others-box {
+    padding: 8px;
+}
+
+.your-box > .box-bg-you {
+    background-color: rgb(164, 240, 23);
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.others-box > .box-bg-others {
+    background-color: rgb(69, 195, 245);
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.box-bg-you {
+    position: relative;
+}
+
+.box-bg-you, .box-bg-others {
+    display: flex;
+    flex-direction: column;
+}
+
+.others-box > .box-bg-others > .others-username > a {
+    align-self: flex-start;
+    color: rgb(231, 43, 43);
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.box-bg-you > .you {
+    align-self: flex-end;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.box-bg-you > .your-message, .box-bg-others > .others-message {
+    font-size: 1.5rem;
+}
+
+.box-bg-others > .others-message {
+    color: white;
+}
+
+.others-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.your-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.chat-box {
+    width: 100vw;
+    height: 10vh;
+}
+
+#delete {
+    position: absolute;
+    color: red;
+}
