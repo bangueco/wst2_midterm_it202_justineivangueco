@@ -114,7 +114,9 @@ main {
     height: 10vh;
 }
 
-#delete {
+.delete {
     position: absolute;
     color: red;
+    top: 10px;
+    left: 10px;
 }

@@ -33,7 +33,7 @@ class Chatroom {
                 $html.='<div class="your-box">
                 <div class="box-bg-you">
                     <div class="you">You</div>
-                    <div id="delete"><i class="fa-solid fa-trash"></i></div>
+                    <div class="delete"><i class="fa-solid fa-trash"></i> Delete</div>
                     <p class="your-message">'.$message['message'].'</p>
                     <p class="time-stamp">'.$message['timestamp'].'</p>
                 </div>
