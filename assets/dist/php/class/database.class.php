@@ -19,18 +19,19 @@ class Database {
         if ($table == "accounts") {
             $sql = "CREATE TABLE IF NOT EXISTS $table (
                 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                name VARCHAR(255) NOT NULL,
-                username VARCHAR(255) NOT NULL,
-                password VARCHAR(255) NOT NULL,
+                email VARCHAR(100) NOT NULL,
+                password VARCHAR(100) NOT NULL,
+                name VARCHAR(100) NOT NULL,
                 type enum('user','admin') DEFAULT 'user',
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
             $connect->exec($sql);
-        } else if ($table == "chats") {
+        } else if ($table == "messages") {
             $sql = "CREATE TABLE IF NOT EXISTS $table (
                 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                 account_ID INT NOT NULL,
                 message VARCHAR(255),
+                timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 CONSTRAINT fk_chats_accounts_id FOREIGN KEY (account_ID) REFERENCES accounts(id)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
             $connect->exec($sql);
