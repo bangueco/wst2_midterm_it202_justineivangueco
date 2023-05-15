@@ -57,7 +57,7 @@ const submitForm = () => {
                 if (e === 'Registration Success') {
                     window.location.href = "../../../../index.php";
                 } else {
-                    console.log(e);
+                    alert("Email Does Exist in the Database! Please Create a New One");
                 }
             }
         })
