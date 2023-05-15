@@ -4,10 +4,10 @@ class Accounts {
     public function login($data) {
         session_start();
         $connect = new PDO("mysql:host=localhost;dbname=echat", "admin", "root");
-        $query = "SELECT id, name, username, password, type FROM accounts WHERE username=:username and password=:password";
+        $query = "SELECT id, name, email, password, type FROM accounts WHERE email=:email and password=:password";
 
         $login = $connect->prepare($query);
-        $login->bindValue('username',$data['username']);
+        $login->bindValue('email',$data['email']);
         $login->bindValue('password',$data['password']);
         $login->execute();
 
@@ -23,22 +23,22 @@ class Accounts {
     public function register($data) {
         $connect = new PDO("mysql:host=localhost;dbname=echat", "admin", "root");
         
-        $query = "SELECT * FROM accounts WHERE username=:username";
+        $query = "SELECT * FROM accounts WHERE email=:email";
 
         $dup_check = $connect->prepare($query);
-        $dup_check->bindValue('username', $data['username']);
+        $dup_check->bindValue('email', $data['email']);
         $dup_check->execute();
 
         $records = $dup_check->fetchAll();
 
         if(count($records)) {
-            echo "Username Does Exist";
+            echo "Email Does Exist";
         } else {
-            $query = "INSERT INTO accounts(name, username, password) VALUES(:name, :username, :password)";
+            $query = "INSERT INTO accounts(name, email, password) VALUES(:name, :email, :password)";
     
             $register = $connect->prepare($query);
             $register->bindValue('name',$data['name']);
-            $register->bindValue('username',$data['username']);
+            $register->bindValue('email',$data['email']);
             $register->bindValue('password',$data['password']);
             $register->execute();
     
